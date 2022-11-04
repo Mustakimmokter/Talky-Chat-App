@@ -1,0 +1,53 @@
+name: takky
+description: A Very Good Project created by Very Good CLI.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: 3.0.5
+
+dependencies:
+  bloc: ^8.1.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.1
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
+  flutter_svg: ^1.1.5
+  pin_code_fields: ^7.4.0
+  flutter_countdown_timer: ^4.1.0
+  sms_autofill: ^2.2.0
+  country_code_picker: 2.0.0
+  page_transition: ^2.0.9
+  provider: ^6.0.4
+  image_picker: ^0.8.6
+  permission_handler: ^10.1.0
+
+dev_dependencies:
+  bloc_test: ^9.1.0
+  flutter_test:
+    sdk: flutter
+  mocktail: ^0.3.0
+  very_good_analysis: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+
+  assets:
+    - assets/icons/
+    - assets/images/
+
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.otf
+          weight: 400
+        - asset: assets/fonts/Montserrat-SemiBold.otf
+          weight: 500
+        - asset: assets/fonts/Montserrat-ExtraBold.otf
+          weight: 700
