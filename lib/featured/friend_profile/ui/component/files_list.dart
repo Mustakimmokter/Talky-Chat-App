@@ -1,33 +1,23 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:takky/shared/utils/index.dart';
 import 'package:takky/shared/widgets_one/index.dart';
 
 class FilesList extends StatelessWidget {
-  FilesList({super.key});
+  const FilesList({super.key, required this.images});
 
-  final List<String> images = [
-    'assets/images/sudipto.jpg',
-    'assets/images/nayeem_bhai.jpg',
-    'assets/images/2.png',
-    'assets/images/nayeem_bhai.jpg',
-    'assets/images/sudipto.jpg',
-    'assets/images/2.png'
-  ];
+  final List<String> images;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 30, right: 30),
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
-        ),
-        itemCount: 08,
-        itemBuilder: (context, index) {
+    return SingleChildScrollView(
+      child: Wrap(
+        children: List.generate(images.length, (index) {
           return CustomContainer(
+            margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
+            height: SizeUtils.getProportionateScreenWidth(85),
+            width: SizeUtils.getProportionateScreenWidth(85),
             radius: 10,
             color: Colors.grey,
             decorationImage: DecorationImage(
@@ -37,7 +27,7 @@ class FilesList extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           );
-        },
+        }),
       ),
     );
   }

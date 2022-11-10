@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:takky/shared/model/image_model.dart';
 import 'package:takky/shared/utils/index.dart';
 import 'package:takky/shared/widgets_one/index.dart';
 
@@ -10,61 +11,30 @@ class GroupProfilePic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: List.generate(
-        name.length > 3 ? 2 : 1,
-        (index) {
-          return Expanded(
-            child: Column(
-              children: [
-                Expanded(
-                  child: CustomContainer(
-                    padding: const EdgeInsets.only(bottom: 20),
-                    alignment: Alignment.bottomCenter,
-                    width: SizeUtils.screenWidth,
-                    height: SizeUtils.screenHeight,
-                    radius: 0,
-                    color: Colors.grey.shade300,
-                    decorationImage: const DecorationImage(
-                      image: AssetImage('assets/images/2.png'),
-                      fit: BoxFit.cover,
-                    ),
-                    child: CustomTextOne(
-                      text: name[index],
-                      textColor: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-                for (int _startCount = 0;
-                    _startCount < (index > 4 ? index / 2 : 1);
-                    _startCount++)
-                  Expanded(
-                    child: CustomContainer(
-                      padding: const EdgeInsets.only(top: 20),
-                      alignment: Alignment.topCenter,
-                      width: SizeUtils.screenWidth,
-                      height: SizeUtils.screenHeight,
-                      radius: 0,
-                      color: Colors.grey.shade300,
-                      decorationImage: const DecorationImage(
-                        image: AssetImage('assets/images/2.png'),
-                        fit: BoxFit.cover,
-                      ),
-                      child: CustomTextOne(
-                        text: name[index + 2],
-                        textColor: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-          );
-        },
-      ),
+    return Wrap(
+      children: List.generate(ImageModel.getGroupCallList().length, (index) {
+        return CustomContainer(
+          padding: EdgeInsets.only(
+              top: ImageModel.getGroupCallList().length > 1 ? 20 : 0,
+              bottom: index > 1 ? 0 : 20),
+          alignment: index > 1 ? Alignment.topCenter : Alignment.bottomCenter,
+          width: index == 0 ? SizeUtils.screenWidth : SizeUtils.screenWidth / 2,
+          height:
+              index == 0 ? SizeUtils.screenHeight : SizeUtils.screenHeight / 2,
+          radius: 0,
+          color: Colors.grey.shade300,
+          decorationImage: DecorationImage(
+            image: AssetImage(ImageModel.getGroupCallList()[index].image),
+            fit: BoxFit.cover,
+          ),
+          child: CustomTextOne(
+            text: name[index],
+            textColor: Colors.white,
+            fontSize: 22,
+            fontWeight: FontWeight.w600,
+          ),
+        );
+      }),
     );
   }
 }

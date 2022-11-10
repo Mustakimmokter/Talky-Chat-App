@@ -9,7 +9,8 @@ import 'package:takky/featured/friend_profile/provider/index.dart';
 import 'package:takky/featured/home/ui/provider/provider_one.dart';
 import 'package:takky/featured/profile/ui/provider/profile_update.dart';
 import 'package:takky/l10n/l10n.dart';
-import 'package:takky/shared/infrastructure/route.dart';
+
+import '../../featured/call/group_call/ui/screen/group_call_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -58,9 +59,9 @@ class App extends StatelessWidget {
             GlobalMaterialLocalizations.delegate,
           ],
           supportedLocales: AppLocalizations.supportedLocales,
-          //home: FriendProfile(),
-          initialRoute: '/smd',
-          onGenerateRoute: AppRoute.onGenerateRoute,
+          home: GroupCallScreen(),
+          //initialRoute: '/smd',
+          //onGenerateRoute: AppRoute.onGenerateRoute,
         );
       },
     );
