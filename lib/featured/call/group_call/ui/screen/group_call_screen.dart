@@ -7,9 +7,7 @@ import 'package:takky/shared/utils/index.dart';
 import 'package:takky/shared/widgets_one/index.dart';
 
 class GroupCallScreen extends StatelessWidget {
-  GroupCallScreen({super.key});
-
-  final List<String> name = ['Sudipto', 'Nayeem', 'Mokter', 'Saddam'];
+  const GroupCallScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
