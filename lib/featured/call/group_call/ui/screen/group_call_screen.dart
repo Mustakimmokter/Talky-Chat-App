@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:takky/featured/call/group_call/ui/component/index.dart';
 import 'package:takky/featured/call/group_call/ui/provider/group_call_provider.dart';
+import 'package:takky/shared/model/image_model.dart';
 import 'package:takky/shared/utils/index.dart';
+import 'package:takky/shared/widgets_one/index.dart';
 
 class GroupCallScreen extends StatelessWidget {
   GroupCallScreen({super.key});
@@ -20,7 +22,7 @@ class GroupCallScreen extends StatelessWidget {
           children: [
             // Group profile pic,
             GroupProfilePic(
-              name: name,
+              groupCall: ImageModel.getGroupCallList(),
             ),
             // Header and Footer
             Positioned(
@@ -62,41 +64,18 @@ class GroupCallScreen extends StatelessWidget {
                 ],
               ),
             ),
+            if (ImageModel.getGroupCallList().length.isOdd)
+              Positioned(
+                bottom: 140,
+                left: 190,
+                child: CustomRoundedBtn(
+                  icon: Icons.add,
+                  color: Colors.white.withOpacity(.6),
+                ),
+              ),
           ],
         ),
       ),
     );
   }
 }
-
-/*
-
-Positioned(
-              top: 0,
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: SizedBox(
-                height: SizeUtils.screenHeight,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    // Who are you calling?
-                    Column(
-                      children: const [
-                        SizedBox(height: 16),
-                        CustomTextOne(
-                          text: 'Sudipto Saha',
-                          fontSize: 22,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ],
-                    ),
-                    // Cancel, speaker and mute
-                  ],
-                ),
-              ),
-            ),
-
-
- */

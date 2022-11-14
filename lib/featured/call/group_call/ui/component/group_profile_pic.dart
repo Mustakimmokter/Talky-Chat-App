@@ -1,34 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:takky/shared/model/image_model.dart';
+import 'package:takky/shared/model/inedx.dart';
 import 'package:takky/shared/utils/index.dart';
 import 'package:takky/shared/widgets_one/index.dart';
 
 class GroupProfilePic extends StatelessWidget {
-  GroupProfilePic({super.key, required this.name});
+  const GroupProfilePic({super.key, required this.groupCall});
 
-  final List<String> name;
-  late int startCount = 0;
+  final List<GroupCallModel> groupCall;
 
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      children: List.generate(ImageModel.getGroupCallList().length, (index) {
+      children: List.generate(
+          groupCall.length.isOdd && groupCall.length > 3
+              ? groupCall.length - 1
+              : groupCall.length, (index) {
         return CustomContainer(
-          padding: EdgeInsets.only(
-              top: ImageModel.getGroupCallList().length > 1 ? 20 : 0,
-              bottom: index > 1 ? 0 : 20),
-          alignment: index > 1 ? Alignment.topCenter : Alignment.bottomCenter,
-          width: index == 0 ? SizeUtils.screenWidth : SizeUtils.screenWidth / 2,
-          height:
-              index == 0 ? SizeUtils.screenHeight : SizeUtils.screenHeight / 2,
+          padding: const EdgeInsets.only(
+            // top: groupCall.length > 1 ? 20 : 0,
+            bottom: 20,
+          ),
+          alignment: Alignment.bottomCenter,
+          width: groupCall.length < 2
+              ? SizeUtils.screenWidth
+              : groupCall.length == 3
+                  ? SizeUtils.screenWidth
+                  : SizeUtils.screenWidth / 2,
+          height: groupCall.length == 3
+              ? SizeUtils.screenWidth / 1.42
+              : groupCall.length - 1 < 5
+                  ? SizeUtils.screenHeight / 2
+                  : groupCall.length - 1 < 7
+                      ? SizeUtils.screenHeight / 3
+                      : groupCall.length - 1 < 9
+                          ? SizeUtils.screenHeight / 4
+                          : SizeUtils.screenHeight / 4,
           radius: 0,
           color: Colors.grey.shade300,
           decorationImage: DecorationImage(
-            image: AssetImage(ImageModel.getGroupCallList()[index].image),
+            image: AssetImage(groupCall[index].image),
             fit: BoxFit.cover,
           ),
           child: CustomTextOne(
-            text: name[index],
+            text: groupCall[index].name,
             textColor: Colors.white,
             fontSize: 22,
             fontWeight: FontWeight.w600,

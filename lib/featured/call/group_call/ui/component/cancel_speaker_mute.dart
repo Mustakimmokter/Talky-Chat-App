@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:takky/shared/widgets_one/index.dart';
 
 class CancelSpeakerMute extends StatelessWidget {
-  const CancelSpeakerMute({
+  CancelSpeakerMute({
     super.key,
     required this.cancel,
     required this.speaker,

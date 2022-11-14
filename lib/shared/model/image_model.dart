@@ -21,7 +21,12 @@ class ImageModel {
   static List<GroupCallModel> getGroupCallList() {
     final _groupCallList = [
       GroupCallModel(name: 'Sudipto Saha', image: 'assets/images/sudipto.jpg'),
-      GroupCallModel(name: 'Al-Arafat', image: 'assets/images/sudipto.jpg'),
+      GroupCallModel(name: 'Sudipto Saha', image: 'assets/images/sudipto.jpg'),
+      GroupCallModel(name: 'Sudipto Saha', image: 'assets/images/sudipto.jpg'),
+      GroupCallModel(name: 'Sudipto Saha', image: 'assets/images/sudipto.jpg'),
+      GroupCallModel(name: 'Sudipto Saha', image: 'assets/images/sudipto.jpg'),
+      GroupCallModel(name: 'Sudipto Saha', image: 'assets/images/sudipto.jpg'),
+      GroupCallModel(name: 'Sudipto Saha', image: 'assets/images/sudipto.jpg'),
     ];
 
     return _groupCallList;

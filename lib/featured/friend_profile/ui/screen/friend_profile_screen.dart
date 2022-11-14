@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:takky/featured/friend_profile/provider/index.dart';
 import 'package:takky/featured/friend_profile/ui/component/index.dart';
-import 'package:takky/shared/model/inedx.dart';
+import 'package:takky/shared/model/image_model.dart';
 import 'package:takky/shared/utils/index.dart';
 import 'package:takky/shared/widgets_one/index.dart';
 
